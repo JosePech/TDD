@@ -14,7 +14,7 @@ public class MoveFromWasteToFoundationController {
 
     public void moveToFoundation(Card card, int i) {
         assert i >= 0 && i < 4;
-        if(isValidFoundation(card.suit, i)){
+        if(isValidFoundation(card.getSuit(), i)){
             this.board.getFoundation(i).addCard(card);
             this.board.getWaste().remove(card);
         }

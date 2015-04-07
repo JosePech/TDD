@@ -21,8 +21,8 @@ public class Foundation {
         if(this.cards.isEmpty()){
             this.cards.add(card);
         }else if(this.cards.size() < MAX_CARDS){
-            boolean isValidSuit = this.cards.get(0).suit == card.suit;
-            boolean isValidValue = this.cards.get(0).value != card.value;
+            boolean isValidSuit = this.cards.get(0).getSuit() == card.getSuit();
+            boolean isValidValue = this.cards.get(0).getValue() != card.getValue();
             
             if( isValidSuit && isValidValue ){
                 this.cards.add(card);
@@ -34,7 +34,7 @@ public class Foundation {
         if(this.cards.isEmpty()){
             return null;
         }else{
-            return this.cards.get(0).suit;
+            return this.cards.get(0).getSuit();
         }
     }
 

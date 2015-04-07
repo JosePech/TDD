@@ -54,7 +54,7 @@ public class MoveFromWasteToFoundationControllerTest {
         moveController.moveToFoundation(card2, 1);
         
         assertNotEquals(card, card2);
-        assertEquals(card.suit, card2.suit);
+        assertEquals(card.getSuit(), card2.getSuit());
         assertEquals(1, moveController.getFoundation(0).getSize());
         assertEquals(0, moveController.getFoundation(1).getSize());
         assertEquals(2, moveController.getWasteSize());
