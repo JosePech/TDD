@@ -14,6 +14,7 @@ public class MoveFromWasteToFoundationController {
 
     public void moveToFoundation(Card card, int i) {
         this.board.getFoundation(i).addCard(card);
+        this.board.getWaste().remove(card);
     }
 
     public Foundation getFoundation(int i) {
@@ -29,7 +30,7 @@ public class MoveFromWasteToFoundationController {
     }
 
     public int getWasteSize() {
-        return 2;
+        return this.board.getWaste().size();
     }
 
 }

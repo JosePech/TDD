@@ -13,4 +13,13 @@ public class Card {
     public Card(){
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        assert obj instanceof Card;
+        Card cast = (Card)obj;
+        boolean isSameSuit = this.suit == cast.suit;
+        boolean isSameValue = this.value == cast.value;
+        return isSameSuit && isSameValue;
+    }
+    
 }
