@@ -31,6 +31,19 @@ public class MoveFromWasteToFoundationControllerTest {
     }
     
     @Test
+    public void moveFromLowWasteToEmptyFoundationTest() {
+        moveController.setBoard(createEmptyFoundation());
+        Card card = moveController.getCardFromWaste(2);
+        moveController.moveToFoundation(card, 0);
+        
+        card = moveController.getCardFromWaste(1);
+        moveController.moveToFoundation(card, 0);
+        
+        assertEquals(2, moveController.getFoundation(0).getSize());
+        assertEquals(1, moveController.getWasteSize());
+    }
+    
+    @Test
     public void moveFromWasteToLowFoundationTest() {
         moveController.moveToFoundation(new Card(Suit.A, 1), 2);
         moveController.moveToFoundation(new Card(Suit.A, 1), 2);

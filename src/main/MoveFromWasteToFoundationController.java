@@ -21,7 +21,11 @@ public class MoveFromWasteToFoundationController {
     }
 
     public Card getCardFromWaste(int i) {
-        return null;
+        try{
+        return this.board.getWaste().get(i);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     public int getWasteSize() {
