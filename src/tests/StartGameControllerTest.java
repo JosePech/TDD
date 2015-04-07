@@ -1,6 +1,8 @@
 package tests;
 
 import static org.junit.Assert.*;
+import main.Board;
+import main.StartGameController;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,13 +13,13 @@ public class StartGameControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        gameController = new StartGameControllerTest(new Board());
+        gameController = new StartGameController(new Board());
     }
 
     @Test
     public void StartGameTest() {
         gameController.startGame();
-        assertEquals(28, gameController.getDeckSize());
+        assertEquals(24, gameController.getDeckSize());
         
         assertEquals(1, gameController.getTablauPile(0).getSize());
         assertEquals(1, gameController.getTablauPile(0).getVisibleCardsCount());

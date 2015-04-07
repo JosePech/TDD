@@ -2,10 +2,12 @@ package main;
 
 public class Card {
     
-    public Suit suit;
-    public int value;
+    private Suit suit;
+    private int value;
+    private boolean visible;
     
     public Card(Suit suit, int value){
+        assert value > 0 && value < 14;
         this.suit = suit;
         this.value = value;
     }
@@ -20,6 +22,22 @@ public class Card {
         boolean isSameSuit = this.suit == cast.suit;
         boolean isSameValue = this.value == cast.value;
         return isSameSuit && isSameValue;
+    }
+    
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
     
 }
