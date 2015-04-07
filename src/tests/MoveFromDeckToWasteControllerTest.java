@@ -2,7 +2,9 @@ package tests;
 
 import static org.junit.Assert.*;
 import main.Board;
+import main.Card;
 import main.MoveFromDeckToWasteController;
+import main.Suit;
 
 import org.junit.After;
 import org.junit.Before;
@@ -25,11 +27,12 @@ public class MoveFromDeckToWasteControllerTest {
     }
 
     @Test
-    public void moveFromFullDeckToEmptyWasteTest() {        
+    public void moveFromFullDeckToEmptyWasteTest() {  
+        moveController.setBoard(createFullDeckBoard());
         int deckSize = moveController.getDeckSize();
         moveController.moveToDeck();
-        assertTrue(moveController.getDeckSize() == deckSize - 3 );
-        assertTrue(moveController.getWasteSize() == 3 );
+        assertEquals(deckSize - 3, moveController.getDeckSize());
+        assertEquals(3, moveController.getWasteSize());
     }
     
     @Test
@@ -41,7 +44,21 @@ public class MoveFromDeckToWasteControllerTest {
     }
     
     private Board createLowDeckBoard(){
-        return new Board();
+        Board board = new Board();        
+        for(int i=1; i < 3; i++){
+            board.getDeck().add(new Card(Suit.A, i));
+        }
+        return board;
+    }
+    
+    private Board createFullDeckBoard(){
+        Board board = new Board();
+        for(Suit suit : Suit.values()){
+            for(int i=1; i < 14; i++){
+                board.getDeck().add(new Card(suit, i));
+            }
+        }
+        return board;
     }
 
 }
