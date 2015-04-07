@@ -4,12 +4,10 @@ import java.util.List;
 
 public class MoveFromDeckToWasteController {
     
-    private int deckSize;
     private Board board;
 
     public MoveFromDeckToWasteController(Board board) {
         this.board = board;
-        this.deckSize = 3;
     }
 
     public int getDeckSize() {
