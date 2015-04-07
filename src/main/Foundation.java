@@ -20,8 +20,10 @@ public class Foundation {
         if(this.cards.isEmpty()){
             this.cards.add(card);
         }else{
-            if(this.cards.get(0).suit == card.suit 
-                    && this.cards.get(0).value != card.value){
+            boolean isValidSuit = this.cards.get(0).suit == card.suit;
+            boolean isValidValue = this.cards.get(0).value != card.value;
+            
+            if( isValidSuit && isValidValue ){
                 this.cards.add(card);
             }
         }
