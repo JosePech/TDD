@@ -36,6 +36,21 @@ public class MoveFromTableauPileToFoundationTest {
         assertEquals(1, moveController.getTableauPile(6).getVisibleCardsCount());
     }
     
+    @Test
+    public void moveFromPileToInvalidFoundationTest() {
+        int pileSize = moveController.getTableauPile(6).getSize();
+        
+        Card card = moveController.getNextCard(6);        
+        moveController.moveToFoundation(card, 0);
+        
+        card = moveController.getNextCard(6);        
+        moveController.moveToFoundation(card, 1);
+        
+        assertEquals(1, moveController.getFoundation(0).getSize());
+        assertEquals(pileSize - 1, moveController.getTableauPile(6).getSize());
+        assertEquals(1, moveController.getTableauPile(6).getVisibleCardsCount());
+    }
+    
     private Board setUpBoardGame() {
         Board board = new Board();
         board.getDeck().addAll(getShuffledCardDeck());
