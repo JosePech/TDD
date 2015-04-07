@@ -3,20 +3,10 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MoveFromDeckToWasteController {
-    
-    private Board board;
+public class MoveFromDeckToWasteController extends BaseController{
 
     public MoveFromDeckToWasteController(Board board) {
-        this.board = board;
-    }
-
-    public int getDeckSize() {
-        return this.board.getDeck().size();
-    }
-
-    public int getWasteSize() {
-        return this.board.getWaste().size();        
+        super(board);
     }
 
     public void moveToWaste() {
@@ -27,10 +17,6 @@ public class MoveFromDeckToWasteController {
         this.board.getWaste().addAll(cardsToMove);
         this.board.getDeck().subList(0, cardsToGet).clear();
         this.board.getDeck().addAll(oldDeckCards);
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
     }
 
 }

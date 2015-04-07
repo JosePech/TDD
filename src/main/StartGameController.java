@@ -6,12 +6,10 @@ import java.util.List;
 import java.util.Random;
 
 
-public class StartGameController {
-    
-    private Board board;
+public class StartGameController extends BaseController{
 
     public StartGameController(Board board) {
-        this.board = board;
+        super(board);
     }
 
     public void startGame() {
@@ -39,16 +37,8 @@ public class StartGameController {
         return deck;
     }
 
-    public Object getDeckSize() {
-        return this.board.getDeck().size();
-    }
-
-    public TableauPile getTablauPile(int i) {
+    public TableauPile getTableauPile(int i) {
         return this.board.getTableauPile(i);
-    }
-
-    public int getWasteSize() {
-        return this.board.getWaste().size();
     }
 
     public Foundation getFoundation(int i) {

@@ -1,15 +1,9 @@
 package main;
 
-public class MoveFromWasteToFoundationController {
+public class MoveFromWasteToFoundationController extends BaseController{
     
-    private Board board;
-
     public MoveFromWasteToFoundationController(Board board) {
-        this.board = board;
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
+        super(board);
     }
 
     public void moveToFoundation(Card card, int i) {
@@ -23,6 +17,9 @@ public class MoveFromWasteToFoundationController {
     private boolean isValidFoundation(Suit suit, int k){                
         for(int i = 0; i < 4; i ++){
             if(i != k && this.board.getFoundation(i).getSuit() == suit){
+                return false;
+            }else if(i == k && this.board.getFoundation(i).getSuit() != null
+                    && this.board.getFoundation(i).getSuit() != suit){
                 return false;
             }
         }
@@ -39,10 +36,6 @@ public class MoveFromWasteToFoundationController {
         }catch(Exception e){
             return null;
         }
-    }
-
-    public int getWasteSize() {
-        return this.board.getWaste().size();
     }
 
 }

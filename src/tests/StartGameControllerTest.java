@@ -21,20 +21,20 @@ public class StartGameControllerTest {
         gameController.startGame();
         assertEquals(24, gameController.getDeckSize());
         
-        assertEquals(1, gameController.getTablauPile(0).getSize());
-        assertEquals(1, gameController.getTablauPile(0).getVisibleCardsCount());
-        assertEquals(2, gameController.getTablauPile(1).getSize());
-        assertEquals(1, gameController.getTablauPile(1).getVisibleCardsCount());
-        assertEquals(3, gameController.getTablauPile(2).getSize());
-        assertEquals(1, gameController.getTablauPile(2).getVisibleCardsCount());
-        assertEquals(4, gameController.getTablauPile(3).getSize());
-        assertEquals(1, gameController.getTablauPile(3).getVisibleCardsCount());
-        assertEquals(5, gameController.getTablauPile(4).getSize());
-        assertEquals(1, gameController.getTablauPile(4).getVisibleCardsCount());
-        assertEquals(6, gameController.getTablauPile(5).getSize());
-        assertEquals(1, gameController.getTablauPile(5).getVisibleCardsCount());
-        assertEquals(7, gameController.getTablauPile(6).getSize());
-        assertEquals(1, gameController.getTablauPile(6).getVisibleCardsCount());
+        assertEquals(1, gameController.getTableauPile(0).getSize());
+        assertEquals(1, gameController.getTableauPile(0).getVisibleCardsCount());
+        assertEquals(2, gameController.getTableauPile(1).getSize());
+        assertEquals(1, gameController.getTableauPile(1).getVisibleCardsCount());
+        assertEquals(3, gameController.getTableauPile(2).getSize());
+        assertEquals(1, gameController.getTableauPile(2).getVisibleCardsCount());
+        assertEquals(4, gameController.getTableauPile(3).getSize());
+        assertEquals(1, gameController.getTableauPile(3).getVisibleCardsCount());
+        assertEquals(5, gameController.getTableauPile(4).getSize());
+        assertEquals(1, gameController.getTableauPile(4).getVisibleCardsCount());
+        assertEquals(6, gameController.getTableauPile(5).getSize());
+        assertEquals(1, gameController.getTableauPile(5).getVisibleCardsCount());
+        assertEquals(7, gameController.getTableauPile(6).getSize());
+        assertEquals(1, gameController.getTableauPile(6).getVisibleCardsCount());
 
         assertEquals(0, gameController.getWasteSize());
 

@@ -1,11 +1,9 @@
 package main;
 
-public class MoveFromTableauPileToFoundation {
+public class MoveFromTableauPileToFoundation extends BaseController{
     
-    private Board board;
-
     public MoveFromTableauPileToFoundation(Board board) {
-        this.board = board;
+        super(board);
     }
 
     public TableauPile getTableauPile(int i) {
@@ -16,33 +14,34 @@ public class MoveFromTableauPileToFoundation {
         return this.getTableauPile(i).getNextCard();
     }
 
-    public void moveToFoundation(Card card, int i) {
+    public void moveToFoundation(Card card, int foundationIntex) {
         TableauPile pile = this.board.findTableauPileByCard(card);        
-        if(pile != null && isValidFoundation(card.getSuit(), i)){
-            this.board.getFoundation(i).addCard(card);
+        if(pile != null && isValidFoundation(card.getSuit(), foundationIntex)){
+            this.board.getFoundation(foundationIntex).addCard(card);
             pile.removeLastCard();
             pile.flipLastCard();
         }
     }
     
-    private boolean isValidFoundation(Suit suit, int k){                
+    private boolean isValidFoundation(Suit suit, int foundationIntex){                
         for(int i = 0; i < 4; i ++){
-            if(i != k && this.board.getFoundation(i).getSuit() == suit){
+            if(i != foundationIntex && this.board.getFoundation(i).getSuit() == suit){
                 return false;
-            }else if(i == k && this.board.getFoundation(i).getSuit() != null
-                    && this.board.getFoundation(i).getSuit() != suit){
+            }else if(i == foundationIntex && isValidSuit(i, suit)){
                 return false;
             }
         }
         return true;
     }
+    
+    private boolean isValidSuit(int foundationIndex, Suit suit){
+        boolean suitIsNotNull = this.board.getFoundation(foundationIndex).getSuit() != null;
+        boolean suitIsDifferent = this.board.getFoundation(foundationIndex).getSuit() != suit;
+        return suitIsNotNull && suitIsDifferent;
+    }
 
     public Foundation getFoundation(int i) {
         return this.board.getFoundation(i);
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
     }
 
 }
