@@ -15,6 +15,14 @@ public class BaseController {
     public int getWasteSize() {
         return this.board.getWaste().size();        
     }
+    
+    public TableauPile getTableauPile(int i) {
+        return this.board.getTableauPile(i);
+    }
+    
+    public Foundation getFoundation(int i) {
+        return this.board.getFoundation(i);
+    }
 
     public void setBoard(Board board) {
         this.board = board;

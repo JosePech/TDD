@@ -37,12 +37,4 @@ public class StartGameController extends BaseController{
         return deck;
     }
 
-    public TableauPile getTableauPile(int i) {
-        return this.board.getTableauPile(i);
-    }
-
-    public Foundation getFoundation(int i) {
-        return this.board.getFoundation(i);
-    }
-
 }

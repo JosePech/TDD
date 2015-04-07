@@ -1,6 +1,6 @@
 package main;
 
-public class MoveFromWasteToFoundationController extends BaseController{
+public class MoveFromWasteToFoundationController extends MoveToFoundationController{
     
     public MoveFromWasteToFoundationController(Board board) {
         super(board);
@@ -14,22 +14,6 @@ public class MoveFromWasteToFoundationController extends BaseController{
         }
     }
     
-    private boolean isValidFoundation(Suit suit, int k){                
-        for(int i = 0; i < 4; i ++){
-            if(i != k && this.board.getFoundation(i).getSuit() == suit){
-                return false;
-            }else if(i == k && this.board.getFoundation(i).getSuit() != null
-                    && this.board.getFoundation(i).getSuit() != suit){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public Foundation getFoundation(int i) {
-        return this.board.getFoundation(i);
-    }
-
     public Card getCardFromWaste(int i) {
         try{
         return this.board.getWaste().get(i);
