@@ -1,18 +1,9 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class TableauPile {
-    
-    private List<Card> cards;
+public class TableauPile extends GenericPile {
     
     public TableauPile(){
-        this.cards = new ArrayList<Card>();
-    }
-
-    public int getSize() {
-        return this.cards.size();
+        super();
     }
 
     public int getVisibleCardsCount() {
@@ -33,6 +24,7 @@ public class TableauPile {
         }
     }
 
+    @Override
     public void addCard(Card card) {
         this.cards.add(card);
     }

@@ -1,28 +1,21 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Foundation {
-    
-    private List<Card> cards;    
+public class Foundation extends GenericPile {
+        
     private final int MAX_CARDS = 13;
     
     public Foundation(){
-        this.cards = new ArrayList<Card>();
+        super();
     }
 
-    public int getSize() {
-        return cards.size();
-    }
-
+    @Override
     public void addCard(Card card) {
         assert card != null;
         if(this.cards.isEmpty()){
             this.cards.add(card);
         }else if(this.cards.size() < MAX_CARDS){
             boolean isValidSuit = this.cards.get(0).getSuit() == card.getSuit();
-            boolean isValidValue = this.cards.get(0).getValue() != card.getValue();
+            boolean isValidValue = !this.cards.contains(card);
             
             if( isValidSuit && isValidValue ){
                 this.cards.add(card);
