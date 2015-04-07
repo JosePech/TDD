@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Foundation {
     
-    private List<Card> cards;
+    private List<Card> cards;    
     
     public Foundation(){
         this.cards = new ArrayList<Card>();
@@ -19,7 +19,7 @@ public class Foundation {
         assert card != null;
         if(this.cards.isEmpty()){
             this.cards.add(card);
-        }else{
+        }else if(this.cards.size() < 13){
             boolean isValidSuit = this.cards.get(0).suit == card.suit;
             boolean isValidValue = this.cards.get(0).value != card.value;
             
