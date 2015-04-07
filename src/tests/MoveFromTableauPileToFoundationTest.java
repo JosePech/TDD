@@ -9,7 +9,7 @@ import java.util.Random;
 
 import main.Board;
 import main.Card;
-import main.MoveFromTableauPileToFoundation;
+import main.MoveFromTableauPileToFoundationController;
 import main.Suit;
 
 import org.junit.Before;
@@ -17,11 +17,11 @@ import org.junit.Test;
 
 public class MoveFromTableauPileToFoundationTest {
     
-    private MoveFromTableauPileToFoundation moveController;
+    private MoveFromTableauPileToFoundationController moveController;
 
     @Before
     public void setUp() throws Exception {
-        moveController = new MoveFromTableauPileToFoundation(setUpBoardGame());
+        moveController = new MoveFromTableauPileToFoundationController(setUpBoardGame());
     }
 
     @Test

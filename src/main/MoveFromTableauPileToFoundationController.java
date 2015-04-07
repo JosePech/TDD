@@ -1,8 +1,8 @@
 package main;
 
-public class MoveFromTableauPileToFoundation extends MoveToFoundationController{
+public class MoveFromTableauPileToFoundationController extends MoveToFoundationController{
     
-    public MoveFromTableauPileToFoundation(Board board) {
+    public MoveFromTableauPileToFoundationController(Board board) {
         super(board);
     }
 
