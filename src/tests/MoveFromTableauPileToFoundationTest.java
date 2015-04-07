@@ -24,7 +24,7 @@ public class MoveFromTableauPileToFoundationTest {
         moveController = new MoveFromTableauPileToFoundation(setUpBoardGame());
     }
 
-    //@Test
+    @Test
     public void moveFromPileToFoundationTest() {
         int pileSize = moveController.getTableauPile(6).getSize();
         Card card = moveController.getNextCard(6);
@@ -47,6 +47,19 @@ public class MoveFromTableauPileToFoundationTest {
         assertEquals(1, moveController.getFoundation(0).getSize());
         assertEquals(pileSize - 1, moveController.getTableauPile(6).getSize());
         assertEquals(1, moveController.getTableauPile(6).getVisibleCardsCount());
+    }
+    
+    @Test
+    public void moveInvalidCardFromPileToFoundationTest() {
+        moveController.setBoard(setUpOrderedDeckBoardGame());
+        int pileSize = moveController.getTableauPile(3).getSize();
+        
+        Card card = moveController.getNextCard(2);        
+        moveController.moveToFoundation(card, 0); 
+        card = moveController.getNextCard(6);
+        moveController.moveToFoundation(card, 0);
+        
+        assertEquals(1, moveController.getFoundation(0).getSize());
     }
     
     private Board setUpBoardGame() {
