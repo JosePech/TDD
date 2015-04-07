@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Board {
     
@@ -39,10 +40,16 @@ public class Board {
     public int getTableauSize() {
         return this.tableau.size();
     }
-
+    
     public TableauPile getTableauPile(int i) {
         assert i >= 0 && i < 7;
         return this.tableau.get(i);
+    }
+
+    public TableauPile findTableauPileByCard(Card card) {
+        Optional<TableauPile> search = 
+                this.tableau.stream().filter(p-> p.hasCard(card)).findFirst();
+        return search.isPresent() ? search.get() : null;
     }
 
 }
