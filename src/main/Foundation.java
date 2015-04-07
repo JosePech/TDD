@@ -29,5 +29,13 @@ public class Foundation {
             }
         }
     }
+    
+    public Suit getSuit(){
+        if(this.cards.isEmpty()){
+            return null;
+        }else{
+            return this.cards.get(0).suit;
+        }
+    }
 
 }
