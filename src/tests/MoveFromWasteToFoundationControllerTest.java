@@ -29,6 +29,17 @@ public class MoveFromWasteToFoundationControllerTest {
         assertEquals(0, moveController.getFoundation(3).getSize());
         assertEquals(2, moveController.getWasteSize());
     }
+    
+    @Test
+    public void moveFromWasteToLowFoundationTest() {
+        moveController.moveToFoundation(new Card(Suit.A, 1), 2);
+        moveController.moveToFoundation(new Card(Suit.A, 1), 2);
+        moveController.moveToFoundation(new Card(Suit.B, 1), 2);
+        assertEquals(0, moveController.getFoundation(0).getSize());
+        assertEquals(0, moveController.getFoundation(1).getSize());
+        assertEquals(1, moveController.getFoundation(2).getSize());
+        assertEquals(0, moveController.getFoundation(3).getSize());
+    }
 
     private Board createEmptyFoundation() {
         Board board = new Board();

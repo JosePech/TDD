@@ -1,7 +1,5 @@
 package main;
 
-import java.util.List;
-
 public class MoveFromWasteToFoundationController {
     
     private Board board;
