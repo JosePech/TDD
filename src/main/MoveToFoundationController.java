@@ -1,13 +1,15 @@
 package main;
 
 public class MoveToFoundationController extends BaseController{
+    
+    private final int FOUNDATION_COUNT = 4;
 
     public MoveToFoundationController(Board board) {
         super(board);
     }    
     
     protected boolean isValidFoundation(Suit suit, int foundationIntex){                
-        for(int i = 0; i < 4; i ++){
+        for(int i = 0; i < FOUNDATION_COUNT; i ++){
             if(i != foundationIntex && this.board.getFoundation(i).getSuit() == suit){
                 return false;
             }else if(i == foundationIntex && isValidSuit(i, suit)){

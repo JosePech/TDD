@@ -7,6 +7,8 @@ import java.util.Random;
 
 
 public class StartGameController extends BaseController{
+    
+    private final int SUIT_SIZE = 13;
 
     public StartGameController(Board board) {
         super(board);
@@ -28,7 +30,7 @@ public class StartGameController extends BaseController{
     private List<Card> getShuffledCardDeck(){
         List<Card> deck = new ArrayList<Card>();
         for(Suit suit : Suit.values()){
-            for(int i=1; i < 14; i++){
+            for(int i=1; i <= SUIT_SIZE; i++){
                 deck.add(new Card(suit, i));
             }
         }
