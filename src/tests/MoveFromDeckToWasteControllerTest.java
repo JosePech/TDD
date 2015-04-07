@@ -59,6 +59,17 @@ public class MoveFromDeckToWasteControllerTest {
         assertEquals(3,moveController.getWasteSize());
     }
     
+    @Test
+    public void moveFromDeckToLowWasteTest() {
+        Board board = createFullDeckAndWasteBoard();
+        board.getWaste().remove(0);
+        moveController.setBoard(board);
+        int deckSize = moveController.getDeckSize();
+        moveController.moveToDeck();
+        assertEquals(deckSize - 1, moveController.getDeckSize());
+        assertEquals(3,moveController.getWasteSize());
+    }
+    
     private Board createLowDeckBoard(){
         Board board = new Board();        
         for(int i=1; i < 3; i++){
