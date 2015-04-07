@@ -16,7 +16,15 @@ public class Foundation {
     }
 
     public void addCard(Card card) {
-        this.cards.add(card);
+        assert card != null;
+        if(this.cards.isEmpty()){
+            this.cards.add(card);
+        }else{
+            if(this.cards.get(0).suit == card.suit 
+                    && this.cards.get(0).value != card.value){
+                this.cards.add(card);
+            }
+        }
     }
 
 }
