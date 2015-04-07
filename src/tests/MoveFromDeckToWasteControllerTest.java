@@ -1,6 +1,8 @@
 package tests;
 
 import static org.junit.Assert.*;
+import main.Board;
+import main.MoveFromDeckToWasteController;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +17,7 @@ public class MoveFromDeckToWasteControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        moveController = new MoveFromDeckToWasteController(new Board(););
+        moveController = new MoveFromDeckToWasteController(new Board());
     }
 
     @After
@@ -25,7 +27,7 @@ public class MoveFromDeckToWasteControllerTest {
     @Test
     public void moveFromFullDeckToEmptyWasteTest() {        
         int deckSize = moveController.getDeckSize();
-        moveCotroller.moveToDeck();
+        moveController.moveToDeck();
         assertTrue(moveController.getDeckSize() == deckSize - 3 );
         assertTrue(moveController.getWasteSize() == 3 );
     }
