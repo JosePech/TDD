@@ -6,6 +6,7 @@ import java.util.List;
 public class Foundation {
     
     private List<Card> cards;    
+    private final int MAX_CARDS = 13;
     
     public Foundation(){
         this.cards = new ArrayList<Card>();
@@ -19,7 +20,7 @@ public class Foundation {
         assert card != null;
         if(this.cards.isEmpty()){
             this.cards.add(card);
-        }else if(this.cards.size() < 13){
+        }else if(this.cards.size() < MAX_CARDS){
             boolean isValidSuit = this.cards.get(0).suit == card.suit;
             boolean isValidValue = this.cards.get(0).value != card.value;
             
