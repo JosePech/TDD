@@ -19,7 +19,7 @@ public class MoveFromDeckToWasteController {
         return this.board.getWaste().size();        
     }
 
-    public void moveToDeck() {
+    public void moveToWaste() {
         int cardsToGet = this.board.getDeck().size() > 3 ? 3 : this.board.getDeck().size();
         List<Card> cardsToMove = this.board.getDeck().subList(0, cardsToGet);
         List<Card> oldDeckCards = new ArrayList<Card>(this.board.getWaste());

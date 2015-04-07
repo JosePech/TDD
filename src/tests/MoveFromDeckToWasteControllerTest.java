@@ -11,10 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class MoveFromDeckToWasteControllerTest {
-//  Waste to Tableau    5
-//  Waste to Foundation 10
-//  Tableau to Foundation
-//  Deck to waste
+
     private MoveFromDeckToWasteController moveController;
 
     @Before
@@ -30,7 +27,7 @@ public class MoveFromDeckToWasteControllerTest {
     public void moveFromFullDeckToEmptyWasteTest() {  
         moveController.setBoard(createFullDeckBoard());
         int deckSize = moveController.getDeckSize();
-        moveController.moveToDeck();
+        moveController.moveToWaste();
         assertEquals(deckSize - 3, moveController.getDeckSize());
         assertEquals(3, moveController.getWasteSize());
     }
@@ -38,14 +35,14 @@ public class MoveFromDeckToWasteControllerTest {
     @Test
     public void moveFromLowDeckToWasteTest() {   
         moveController.setBoard(createLowDeckBoard());
-        moveController.moveToDeck();
+        moveController.moveToWaste();
         assertEquals(0, moveController.getDeckSize());
         assertEquals(2,moveController.getWasteSize());
     }
     
     @Test
     public void moveFromEmptyDeckToWasteTest() {
-        moveController.moveToDeck();
+        moveController.moveToWaste();
         assertEquals(0, moveController.getDeckSize());
         assertEquals(0,moveController.getWasteSize());
     }
@@ -54,7 +51,7 @@ public class MoveFromDeckToWasteControllerTest {
     public void moveFromFullDeckToFullWasteTest() {
         moveController.setBoard(createFullDeckAndWasteBoard());
         int deckSize = moveController.getDeckSize();
-        moveController.moveToDeck();
+        moveController.moveToWaste();
         assertEquals(deckSize, moveController.getDeckSize());
         assertEquals(3,moveController.getWasteSize());
     }
@@ -65,7 +62,7 @@ public class MoveFromDeckToWasteControllerTest {
         board.getWaste().remove(0);
         moveController.setBoard(board);
         int deckSize = moveController.getDeckSize();
-        moveController.moveToDeck();
+        moveController.moveToWaste();
         assertEquals(deckSize - 1, moveController.getDeckSize());
         assertEquals(3,moveController.getWasteSize());
     }
