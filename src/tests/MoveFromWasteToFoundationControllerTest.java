@@ -86,7 +86,7 @@ public class MoveFromWasteToFoundationControllerTest {
         moveController.moveToFoundation(new Card(Suit.A, 11), 0);
         moveController.moveToFoundation(new Card(Suit.A, 12), 0);
         moveController.moveToFoundation(new Card(Suit.A, 13), 0);
-        moveController.moveToFoundation(new Card(Suit.A, 14), 0);
+        moveController.moveToFoundation(new Card(Suit.A, 13), 0);
         assertEquals(13, moveController.getFoundation(0).getSize());
     }
 
