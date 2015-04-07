@@ -31,5 +31,17 @@ public class MoveFromDeckToWasteControllerTest {
         assertTrue(moveController.getDeckSize() == deckSize - 3 );
         assertTrue(moveController.getWasteSize() == 3 );
     }
+    
+    @Test
+    public void moveFromLowDeckToWasteTest() {   
+        moveController.setBoard(createLowDeckBoard());
+        moveController.moveToDeck();
+        assertEquals(0, moveController.getDeckSize());
+        assertEquals(2,moveController.getWasteSize());
+    }
+    
+    private Board createLowDeckBoard(){
+        return new Board();
+    }
 
 }
