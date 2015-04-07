@@ -44,6 +44,23 @@ public class MoveFromWasteToFoundationControllerTest {
     }
     
     @Test
+    public void moveFromWasteToInvalidFoundationTest() {
+        moveController.setBoard(createEmptyFoundation());
+        
+        Card card = moveController.getCardFromWaste(0);
+        moveController.moveToFoundation(card, 0);
+        
+        Card card2 = moveController.getCardFromWaste(0);
+        moveController.moveToFoundation(card2, 1);
+        
+        assertNotEquals(card, card2);
+        assertEquals(card.suit, card2.suit);
+        assertEquals(1, moveController.getFoundation(0).getSize());
+        assertEquals(0, moveController.getFoundation(1).getSize());
+        assertEquals(2, moveController.getWasteSize());
+    }
+    
+    @Test
     public void moveFromWasteToLowFoundationTest() {
         moveController.moveToFoundation(new Card(Suit.A, 1), 2);
         moveController.moveToFoundation(new Card(Suit.A, 1), 2);

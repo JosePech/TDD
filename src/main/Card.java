@@ -2,8 +2,8 @@ package main;
 
 public class Card {
     
-    Suit suit;
-    int value;
+    public Suit suit;
+    public int value;
     
     public Card(Suit suit, int value){
         this.suit = suit;
